@@ -1,0 +1,13 @@
+
+{
+"description":"IMURAN (azathioprine), an immunosuppressive antimetabolite, is available in tablet form for oral administration. Each scored tablet contains 50 mg azathioprine and the inactive ingredients lactose, magnesium stearate, potato starch, povidone, and stearic acid.", 
+
+"sideeffects": "fever, night sweats, weight loss, tiredness,feeling full after eating only a small amount,in in your upper stomach that may spread to your shoulder,easy bruising or bleeding, pale skin, feeling light-headed or short of breath, rapid heart rate or nausea,...",
+
+    "id": "azathioprine", 
+    "images": [
+        "img/tablets/azathioprine.jpg" 
+    ], 
+    "name": "Azathioprine"
+    
+}

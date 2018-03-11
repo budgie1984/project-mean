@@ -1,0 +1,12 @@
+
+{
+    "description":"Multivitamin containing a range of vitams including Vit-B12", 
+    "sideeffects": "fever, night sweats, weight loss, tiredness,feeling full after eating only a small amount,in in your upper stomach that may spread to your shoulder,easy bruising or bleeding, pale skin, feeling light-headed or short of breath, rapid heart rate or nausea,...",
+
+        "id": "folic-acid", 
+        "images": [
+            "img/tablets/folic-acid.jpg" 
+        ], 
+        "name": "Folic-Acid"
+        
+    }

@@ -1,0 +1,42 @@
+[ 
+    {
+        "age": 0, 
+        "id": "calvapen", 
+        "imageUrl": "img/tablets/calvapen.jpg", 
+        "name": "Calvapen", 
+        "dose" : 333,
+        "amountToTake": 1,
+        "totalAmount": 30,
+        "snippet": "Contains penicillin, antiobiotic"
+    }, 
+    {
+        "age": 1, 
+        "id": "azathioprine", 
+        "imageUrl": "img/tablets/azathioprine.jpg", 
+        "name": "Azathioprine", 
+        "dose" : 100,
+        "amountToTake": 2,
+        "totalAmount": 60,
+        "snippet": "Immunosuppresant, helps prevent organ rejection."
+    }, 
+    {
+        "age": 2,  
+        "id": "fosamax", 
+        "imageUrl": "img/tablets/fosamax.jpg", 
+        "name": "Fosamax", 
+        "dose" : 10,
+        "amountToTake": 1,
+        "totalAmount": 30,
+        "snippet": "helps build up bones."
+    }, 
+    {
+        "age": 3, 
+        "id": "folic-acid", 
+        "imageUrl": "img/tablets/folic-acid.jpg", 
+        "name": "Folic Acid", 
+        "dose" : 5,
+        "amountToTake": 1,
+        "totalAmount": 30,
+        "snippet": "Multi vitamin."
+    }
+]

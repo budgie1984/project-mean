@@ -1,0 +1,11 @@
+
+{
+"description":"Immunosuppressant drug to aid in the prevention of organ rejection in transplant recipients", 
+
+    "id": "azathioprine", 
+    "images": [
+        "img/tablets/azathioprine.jpg" 
+    ], 
+    "name": "Azathioprine"
+    
+}

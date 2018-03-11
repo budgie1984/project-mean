@@ -1,0 +1,19 @@
+const express = require('express');
+const TabletApi = require('./api/tablet/controller/tablet');
+const ContainerApi = require('./api/tablet/controller/container');
+
+
+module.exports = (function() {
+    const api = express.Router();
+
+    api.post('/createTablet', TabletApi.createTablet);
+    api.get('/getTablets', TabletApi.getTablets);
+    api.get('/getTablet/:id', TabletApi.getTablet);
+    api.delete('/deleteTablet/:id', TabletApi.deleteTablet);
+    api.put('/updateTablet/:id', TabletApi.updateTablet);
+
+    api.get('/getContainers', ContainerApi.getContainers);
+    api.post('/createContainer', ContainerApi.createContainer);
+
+    return api;
+})();

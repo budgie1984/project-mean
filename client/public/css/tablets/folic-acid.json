@@ -1,0 +1,11 @@
+
+{
+    "description":"Multivitamin containing a range of vitams including Vit-B12", 
+    
+        "id": "folic-acid", 
+        "images": [
+            "img/tablets/folic-acid.jpg" 
+        ], 
+        "name": "Folic-Acid"
+        
+    }

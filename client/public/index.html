@@ -1,0 +1,56 @@
+<!doctype html>
+ <html lang="en" ng-app="tabletApp" >
+ <head>
+  <meta charset="utf-8">
+  <title>Tablet Monitor App</title>
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/custom.css" rel="stylesheet" type="text/css">
+    <link href="../css/custom.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.20.1.js"></script>
+   
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Tablet Monitor</a>
+          </div>
+          <ul class="nav navbar-nav">
+          
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/tabletdatabase">Tablet Database</a></li>
+            <li><a href="#/createContainer">Create New Container</a></li>
+            <li><a href="#/viewContainer">View Container</a></li>
+            <li><a href="#/tabletrecords">Tablet Records</a></li>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            
+
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+          <div ng-view ></div>         
+      </div>
+          <script src="../scripts/angular.min.js"></script>
+          <script src="../scripts/angular-route.min.js"></script>
+          <script src="app.js"></script>
+          <script src="../controllers/homeController.js"></script>
+          <script src="../controllers/tabletDatabaseController.js"></script>
+          <script src="../controllers/createContainerController.js"></script>
+          <script src="../controllers/tabletRecordsController.js"></script>
+          
+
+          <script src="../services/tabletService.js"></script>
+          <script src="../services/containerService.js"></script>
+
+          
+    </body>
+</html>

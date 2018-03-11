@@ -1,0 +1,11 @@
+{ 
+    "description": "Calvapen-Penicillin V (sometimes called phenoxymethylpenicillin) is an antibiotic used to treat bacterial infections. It exerts a bactericidal action against penicillin-sensitive microorganisms during the stage of active multiplication. It acts by inhibiting the biosynthesis of cell-wall peptidoglycan.", 
+    "sideeffects": "side effects include nausea, vomiting, loss of appetite, gastric discomfort, abdominal pain, flatulence and diarrhoea. These disorders are usually light and abate during or at the latest after discontinuing treatment.",
+
+    "id": "calvapen", 
+    "images": [
+        "img/tablets/calvapen.jpg" 
+    ], 
+    "name": "Calvapen"
+    
+}

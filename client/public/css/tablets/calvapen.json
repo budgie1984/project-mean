@@ -1,0 +1,12 @@
+{
+    "additionalFeatures": "Front Facing 1.3MP Camera", 
+  
+    "description": "Antiobotic containing penicillin", 
+
+    "id": "calvapen", 
+    "images": [
+        "img/tablets/calvapen.jpg" 
+    ], 
+    "name": "Calvapen"
+    
+}

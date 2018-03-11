@@ -1,0 +1,49 @@
+
+
+<div class="container">
+    <h1 class="well" align="center">Tablet Records</h1>
+        
+    
+          <div class="col-lg-12 well">  <!-- Will need ng-repeat loop here to display 
+                                              date/times tablets were taken -->
+
+
+                
+                        <b>Brians Container</b> 
+                            <div class="pull-right">
+                                <p>Monday 25th June 2018  Status: Taken</p>
+                              </div>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Tablet Name</th>
+                                    <th>Dose</th>
+                                    <th>Amount To Take</th>
+                                    <th>Total Amount</th>
+                                    <th>Amount Left</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Calvapen</td>
+                                    <td>333mg</td>
+                                    <td>1</td>
+                                    <td>30</td>
+                                    <td>29</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>{{tablet.name}}</td>
+                                    <td>{{tablet.dose}}</td>
+                                    <td>{{tablet.amountToTake}}</td>
+                                    <td>{{tablet.totalAmount}}</td>
+                                    <td>Amount Left (amountToTake - TotalAmount, or get rid of field and update Total amount)</td>
+
+                                  </tr>
+                                </tbody>
+                          </table>  
+                          
+                  
+      </div>
+
+</div>

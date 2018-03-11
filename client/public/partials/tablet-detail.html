@@ -1,0 +1,62 @@
+<!-- <div class="jumbotron">
+    <div class="row">
+        <div class="col-sm-6">
+            <table>
+                <thead>
+                    <br>
+                </thead>
+                <tbody>
+                    <tr class="t-row">
+                        <td>
+                            <p><b>Name: </b>{{currentTablet.name}}</p>
+                        </td>
+                        <td>
+                            <p> <b>Dose: </b> {{currentTablet.dose}}</p>
+                        </td>
+                        <td>
+                            <p><b>Amount to take: </b>{{currentTablet.amountToTake}}</p>
+                        </td>
+                        <td>
+                            <p> <b>Total amount: </b> {{currentTablet.totalAmount}}</p>
+                        </td>
+                        <td>
+                    </tr>
+                </tbody>
+                <br>
+            </table>
+        </div>
+    </div> -->
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-sm-6">
+                <h3><b>Description <b></h3>
+                <p>Tablet Description goes here at some point</p>
+            </div>
+
+
+        <div class="col-sm-6">
+            <h1>{{currentTablet.name}}</h1>
+            <p>
+                <b>Dose:</b> {{currentTablet.dose}}
+                <b>Amount To Take:</b> {{currentTablet.amountToTake}}
+                <b>Total Amount:</b> {{currentTablet.totalAmount}}</p>
+            </p>
+
+            <form class="form">
+                <div class="form-group">
+                    <label>Tablet Name </label>
+                    <input type="text" class="form-control" placeholder="Enter tablet name" ng-model="tablet.name">
+                    <label>Dose </label>
+                    <input type="text" class="form-control" placeholder="Enter Dose" ng-model="tablet.dose">
+                    <label>Amount To Take </label>
+                    <input type="text" class="form-control" placeholder="Enter amount to take" ng-model="tablet.amountToTake">
+                    <label>Total Amount </label>
+                    <input type="text" class="form-control" placeholder="Enter total amount" ng-model="tablet.totalAmount">
+                    <button type="submit" class="btn pull-right btn-primary" ng-click="updateTablet(tablet)">Update Tablet</button>
+
+
+                </div>
+        </div>
+
+    </div>
