@@ -22,7 +22,7 @@
                             <li ng-repeat="container in containers | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                             <!--   <a href="#/containers/{{container.id}}" class="thumb"><img ng-src="{{container.imageUrl}}"></a>  -->
 
-                                    <b>    Name:</b>  {{container.name}} , 
+                                    <b>    Name:</b>  {{container.name}}
                                    
                                     <button class="btn btn-xs pull-right btn-info" ng-click="viewContainer(container)">Info</button>
                                   <button class="btn btn-xs pull-right btn-danger" ng-click="deleteContainer(container)">Delete</button>

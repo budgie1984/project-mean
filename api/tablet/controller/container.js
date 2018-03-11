@@ -30,7 +30,7 @@ exports.getContainer = function (req, res) {
   Container.findOne({ _id: req.params.id })
       .then(function(container) {
           if (container != null) {
-              return res.json(container)
+              return res.json(container);
           }
       })
       .catch(function(err) {

@@ -1,10 +1,10 @@
-const express = require('express');
-const TabletApi = require('./api/tablet/controller/tablet');
-const ContainerApi = require('./api/tablet/controller/container');
+var express = require('express');
+var TabletApi = require('./api/tablet/controller/tablet');
+var ContainerApi = require('./api/tablet/controller/container');
 
 
 module.exports = (function() {
-    const api = express.Router();
+    var api = express.Router();
 
     api.post('/createTablet', TabletApi.createTablet);
     api.get('/getTablets', TabletApi.getTablets);

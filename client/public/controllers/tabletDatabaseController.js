@@ -33,17 +33,21 @@ tabletApp.controller('tabletDatabaseController',
             tabletService.deleteTablet(tablet._id)
                 .then(function(res) {
                     console.log('response to front', res);
+                     $location.path("/tabletdatabase");
                 });
         };
 
         $scope.updateTablet = function(tablet) {
-            console.log('tablet to update, Tablet: ', tablet);
-            $scope.currentTablet = tabletService.getTablet($routeParams.tabletId);
-
-            tabletService.updateTablet(tablet._id)
-                .then(function(res) {
+            tablet.id = $routeParams.tabletId;
+            console.log('tablet to update SENT FROM THE UI HTML PAGE, Tablet: ', tablet);
+            tabletService.updateTablet(tablet)
+                .success(function(res) {
                     console.log('response to front', res);
-                });
+                    $location.path("/tabletdatabase");
+                }) 
+                .error(function(err) {
+                $location.path("/home");
+            });
         };
 
 

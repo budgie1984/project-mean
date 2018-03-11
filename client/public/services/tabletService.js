@@ -18,8 +18,8 @@ angular.module('tabletApp')
                 return $http.delete('/api/deleteTablet/' + id);
             },
             updateTablet: function(tablet){
-                console.log('updated service called')
-                return $http.put('/api/updateTablet/' + tablet)
+                console.log('updated service called - NEEDED TO SEND THE TABLET ID IN THE URL AND THE NEW TABLET BODY TO USE FOR UPDATE')
+                return $http.put('/api/updateTablet/' + tablet.id, tablet)
             }
         };
         return api;

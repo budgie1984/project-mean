@@ -33,7 +33,7 @@ var  tabletApp = angular.module('tabletApp', ['ngRoute']);
         })
         .when('/viewContainer', {
           templateUrl: 'partials/viewContainer.html',
-          controller: 'createContainerController'
+          controller: 'createContainersController'
         })
         .when('/tabletrecords', {
           templateUrl: 'partials/tabletrecords.html',

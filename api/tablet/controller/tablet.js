@@ -54,14 +54,16 @@ exports.deleteTablet = function (req, res) {
 
 
 exports.updateTablet = function(req, res) {
+  console.log("ID FROM THE URL IS IN THE PARAMS OBJECT & THE BODY HAS THE NEW TABLET INFO -  params **** : ", req.params);
     Tablet.findById(req.params.id, function (err, tablet) {
-         tablet.name = req.body.name
-         tablet.dose = req.body.dose
-         tablet.amountToTake = req.body.amountToTake
-         tablet.totalAmount = req.body.totalAmount
-         
+         tablet.name = req.body.name;
+         tablet.dose = req.body.dose;
+         tablet.amountToTake = req.body.amountToTake;
+         tablet.totalAmount = req.body.totalAmount;
          tablet.save(function (err) {
-             if(err) { return handleError(res, err); }
+             if(err) { 
+                return res.json(err);
+               }
              return res.send(200, 'Tablet update successful');
          });
      });

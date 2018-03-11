@@ -14,7 +14,6 @@ tabletApp.controller('createContainerController',
           $location.path("./home");
         });
       };
-    });
 
 
     containerService.getContainers()
@@ -29,15 +28,13 @@ tabletApp.controller('createContainerController',
         $location.path("./home");
     });
 
-$scope.viewContainer = (container) => {
-    $scope.currentContainer = container;
-    $location.path("/viewContainer/" + $scope.currentContainer._id);
-};
+    $scope.viewContainer = (container) => {
+        $scope.currentContainer = container;
+        $location.path("/viewContainer/" + $scope.currentContainer._id);
+    };
 
-$scope.currentContainer = containerService.getContainer($routeParams.containerId)
-    .success(function(data) {
-        $scope.currentConatiner = data;
-    })
-    .error(function(err) {
-        $location.path("./home");
-    });
+  
+
+
+
+});
