@@ -10,7 +10,7 @@ tabletApp.controller('tabletRecordsController',
         .success(function(data) {
             console.log("called controller");
             console.log(data);
-            let tablets = data;
+            var tablets = data;
             $scope.tablets = tablets;
             console.log($scope.tablets);
         })

@@ -16,25 +16,6 @@ tabletApp.controller('createContainerController',
       };
 
 
-    containerService.getContainers()
-    .success(function(data) {
-        console.log("called controller");
-        console.log(data);
-        let containers = data;
-        $scope.containers = containers;
-        console.log($scope.containers);
-    })
-    .error(function(err) {
-        $location.path("./home");
-    });
-
-    $scope.viewContainer = (container) => {
-        $scope.currentContainer = container;
-        $location.path("/viewContainer/" + $scope.currentContainer._id);
-    };
-
-  
-
 
 
 });

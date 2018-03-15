@@ -18,8 +18,8 @@
                             Search: <input ng-model="query">
                             Sort by:
                             <select ng-model="orderProp">
-                              <option value="name">Alphabetical</option>
-                              <option value="age">Newest</option>
+                              <option value="name">Name (A to Z)</option>
+                              <option value="age">Age (oldest)</option>
                             </select>
                           </div>
         
@@ -28,7 +28,7 @@
                         <ul  class="tablets">
                             <li ng-repeat="tablet in tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                             <!--   <a href="#/tablets/{{tablet.id}}" class="thumb"><img ng-src="{{tablet.imageUrl}}"></a>  -->
-                            <img src="./img/tablets/azathioprine.jpg" width="90" height="90" class="pull-left"> 
+                            <img src="./img/pillsColour" width="90" height="90" class="pull-left"> 
 
                                     <b>    Name:</b>  {{tablet.name}} , 
                                     <b>    Dose:</b>  {{tablet.dose}} , 

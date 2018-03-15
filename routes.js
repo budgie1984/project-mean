@@ -13,6 +13,9 @@ module.exports = (function() {
     api.put('/updateTablet/:id', TabletApi.updateTablet);
 
     api.get('/getContainers', ContainerApi.getContainers);
+    api.get('/getContainer/:id', ContainerApi.getContainer);
+   // api.delete('/deleteContainer/:id', ContainerApi.deleteContainer);
+
     api.post('/createContainer', ContainerApi.createContainer);
 
     return api;

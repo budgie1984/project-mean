@@ -18,12 +18,21 @@ exports.createContainer = function (req, res) {
   };
 
 
-exports.getContainers = (req, res) => {
+// exports.getContainers = function(req, res) {
+//     Container.find({}).exec()
+//         .then(tablets => {
+//             console.log(containers);
+//             return res.json(containers);
+//         });
+// };
+
+
+exports.getContainers = function (req, res) {
     Container.find({}).exec()
-        .then(tablets => {
+        .then( function (containers){
             console.log(containers);
             return res.json(containers);
-        })
+        });
 };
 
 exports.getContainer = function (req, res) {
@@ -35,5 +44,5 @@ exports.getContainer = function (req, res) {
       })
       .catch(function(err) {
           return res.json(err);
-      })
+      });
 };

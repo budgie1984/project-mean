@@ -7,9 +7,11 @@ tabletApp.controller('tabletDatabaseController',
             .success(function(data) {
                 console.log("called controller");
                 console.log(data);
-                let tablets = data;
+                var tablets = data;
                 $scope.tablets = tablets;
                 console.log($scope.tablets);
+                $scope.orderProp = 'name';
+
             })
             .error(function(err) {
                 $location.path("./home");

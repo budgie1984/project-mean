@@ -31,9 +31,12 @@ var db;
 
 db = 'mongodb://127.0.0.1:27017/tabletApp'
 
-app.listen(port, () => {
-    console.log(`Server started on ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Server started on ${port}`);
+// });
+
+app.listen(port);
+console.log('Server started on port ' + port);
 
 mongoose.connect(db, function(err) {
     if (err) {

@@ -25,7 +25,7 @@ exports.getTablets = function (req, res) {
         .then( function (tablets){
             console.log(tablets);
             return res.json(tablets);
-        })
+        });
 };
 
 
@@ -38,7 +38,7 @@ exports.getTablet = function (req, res) {
         })
         .catch(function(err) {
             return res.json(err);
-        })
+        });
 };
 
 exports.deleteTablet = function (req, res) {
@@ -49,7 +49,7 @@ exports.deleteTablet = function (req, res) {
         })
       .catch(function(err) {
             return res.json(err);
-        })
+        });
 };
 
 
