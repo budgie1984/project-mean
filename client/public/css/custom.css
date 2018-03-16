@@ -126,12 +126,12 @@
 /* individual tablet containers */
 
 .tabs li {
-  height: 35px;
+  height: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
 
   border-color: black;
-  width: 90%;
+  width: 100%;
 }
 
 
@@ -141,12 +141,55 @@
   padding-bottom: 5px;
 
   border-color: black;
-  width: 90%;
+  width: 100%;
+}
+
+
+.mycontainer{
+  background-color: darkcyan;
+  padding-top: 1em;
+  padding-bottom: 10em;
+  padding-left: 1em;
+  padding-right: 1em;
+
 }
 
 
 
-.mycontainer{
-background-color: whitesmoke;
 
+
+
+
+#containerview{
+  background-color: black;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  
+
+
+}
+
+#rightside{
+  background-color: whitesmoke;
+  padding-bottom: 1em;
+  float:right;
+  width: 49%;
+}
+
+#leftside{
+  background-color: whitesmoke;
+  width: 49%;
+}
+
+#tabsincontainer{
+  width:45%;
+}
+
+#tabsindatabase{
+
+  float: right;
 }

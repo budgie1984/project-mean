@@ -37,6 +37,7 @@ tabletApp.controller('viewContainersController',
             containerService.deleteContainer(container._id)
                 .then(function (res) {
                     console.log('response to front', res);
+                    alert("Container Deleted");
                     $location.path("/viewContainers");
                 });
         };

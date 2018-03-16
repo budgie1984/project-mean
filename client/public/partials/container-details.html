@@ -1,20 +1,17 @@
 
 
         <div class="mycontainer">
-            <div class="row">
-                
+            <div class="row" id="containerview">
+                <h1 class="well" align="center">Container Management</h1>
 
-                <div class="col-sm-6" >
+
+                <div class="col-sm-6" id="leftside">
                         <h1 align="center">Tablets in Container</h1>
 
 
-                        <h3><b>{{currentContainer.name}} <b></h3>
-                    
-
-                    
-                
                                     <ul  class="tabs">
                                             <h2><b>Brians Container</b> </h2>
+                                            <h3><b>{{currentContainer.name}} <b></h3>
 
                                             <li ng-repeat="tablet in tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                                             <!--   <a href="#/tablets/{{tablet.id}}" class="thumb"><img ng-src="{{tablet.imageUrl}}"></a>  -->
@@ -38,7 +35,7 @@
                 
                 <!--  <hr width="10" size="500"--> 
                     
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" id="rightside">
 
                            <h1 align="center">Tablets in Database</h1>
 
