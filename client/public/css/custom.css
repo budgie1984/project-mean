@@ -34,10 +34,7 @@
 
  /* lower well where tablets are */
 
- .well {
-   background-color: whitesmoke;
 
- }
 
  .search {
   border-color: black;
@@ -52,6 +49,7 @@
 .jumbotron{
   background-color: white;
 }
+
 
 /**********************************/
  .thumb {
@@ -96,6 +94,7 @@
    height: 100px;
    width: 100px;
    padding: 1em;
+   
  }
 
 
@@ -112,3 +111,42 @@
  h1 {
    border-bottom: 1px solid gray;
  }
+
+
+
+ .tabs {
+  list-style: none;
+  /* background-color: black; */
+  padding-left: 15px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+}
+
+/* individual tablet containers */
+
+.tabs li {
+  height: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  border-color: black;
+  width: 90%;
+}
+
+
+.tabs2 li {
+  height: 55px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  border-color: black;
+  width: 90%;
+}
+
+
+
+.mycontainer{
+background-color: whitesmoke;
+
+}

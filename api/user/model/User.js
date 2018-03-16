@@ -1,13 +1,21 @@
 // Load required packages
 var mongoose = require('mongoose');
 
-// Define our beer schema
+// Define schema
 var UserSchema = new mongoose.Schema({
-  firstname: String,
-  lastname: String,
+  name: String,
   username: String,
-  emailaddress: String,
-  password: String
+  password: String,
+  containers: [{
+    name: String,
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'container'
+    }
+  }],
+
+  required: false
+
 });
 
 // Export the Mongoose model

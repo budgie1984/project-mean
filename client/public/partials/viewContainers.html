@@ -15,17 +15,19 @@
                               <option value="age">Newest</option>
                             </select>
                           </div>
-        
+                          
                       <div class="col-md-10">
                       
                         <ul  class="containers">
                             <li ng-repeat="container in containers | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                             <!--   <a href="#/containers/{{container.id}}" class="thumb"><img ng-src="{{container.imageUrl}}"></a>  -->
-
+                                  <p>
                                     <b>    Name:</b>  {{container.name}}
-                                   
-                                    <button class="btn btn-xs pull-right btn-info" ng-click="">Info</button>
+                                                  
+                                    <button class="btn btn-xs pull-right btn-info" ng-click="viewContainer(container)">Info</button>
                                   <button class="btn btn-xs pull-right btn-danger" ng-click="deleteContainer(container)">Delete</button>
+                                   </p>
+                     
 
                             </li>
                           </ul>

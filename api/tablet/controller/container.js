@@ -18,15 +18,6 @@ exports.createContainer = function (req, res) {
   };
 
 
-// exports.getContainers = function(req, res) {
-//     Container.find({}).exec()
-//         .then(tablets => {
-//             console.log(containers);
-//             return res.json(containers);
-//         });
-// };
-
-
 exports.getContainers = function (req, res) {
     Container.find({}).exec()
         .then( function (containers){
@@ -45,4 +36,16 @@ exports.getContainer = function (req, res) {
       .catch(function(err) {
           return res.json(err);
       });
+};
+
+
+exports.deleteContainer = function (req, res) {
+    console.log(req);
+    Container.remove({ _id: req.params.id })
+        .then(function(container) {
+            return res.json(container);
+        })
+      .catch(function(err) {
+            return res.json(err);
+        });
 };
