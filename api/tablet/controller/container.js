@@ -54,8 +54,8 @@ exports.updateContainer = function (req, res) {
     console.log("container update backend controller called", req.params);
     Container.findById(req.params.id, function (err, container) {
         console.log(container);
-
-        container.tablets.push(req.params.tablet);
+        console.log(req.body.tablet);
+        container.tablets = container.tablets.concat(req.body.tablet);
         container.save(function (err) {
             if (err) {
                 return res.json(err);
