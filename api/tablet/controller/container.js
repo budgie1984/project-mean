@@ -5,11 +5,11 @@ var Container = require('../model/Container');
 exports.createContainer = function (req, res) {
     // Create a new instance of the container model
     var container = new Container();
-    // Set the tablet properties that came from the POST data
+    // Set the container properties that came from the POST data
     container.name = req.body.name;
 
     console.log("**** Container to save: ", container);
-    // Save the tablet and check for errors
+    // Save the container and check for errors
     container.save(function (err) {
         if (err)
             res.send(err);
@@ -51,18 +51,16 @@ exports.deleteContainer = function (req, res) {
 };
 
 exports.updateContainer = function (req, res) {
-    console.log("container update backend controller called", req.params);
-    Container.findById(req.params.id, function (err, container) {
-        console.log(container);
-        console.log(req.body.tablet);
-        container.tablets = container.tablets.concat(req.body.tablet);
-        container.save(function (err) {
-            if (err) {
-                return res.json(err);
+     console.log("container update backend controller called", req.body);
+    Container.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { 'new': true })
+        .then( function (container) {
+            console.log("container",container);
+            if (container != null) {
+                return res.json(container);
             }
-
-            return res.json(container);
-
+        })
+        .catch( function (err) {
+            return res.json(err);
         });
-    });
 };
+

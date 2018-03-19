@@ -3,54 +3,30 @@
         <div class="mycontainer">
             <div class="row" id="containerview">
                 <h1 class="well" align="center">Container Management</h1>
-
-
+  
+  
                 <div class="col-sm-6" id="leftside">
                     
                         <h1 align="center">Tablets in Container</h1>
-
-
-                        <b>{{currentContainer.name}}</b> 
+  
+  
+                       <h3> <b>{{currentContainer.name}}</b> </h3>
                      
-                        <table class="table" style="width:auto;">
+                        <ul  class="tablets">
+                            <li ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                         
-                            <thead>
-                                <tr>
-                                    <th>Tablet Name</th>
-                                    <th>Dose</th>
-                                    <th>Amount To Take</th>
-                                    <th>Total Amount</th>
-                        
-                                </tr>
-                            </thead>
-                            <tbody ui-sortable>
-                                <tr ng-repeat="tablet in currentContainer.tablets" class="t-row">
-                                    <td>
-                                        <p>{{tablet.name}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{tablet.dose}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{tablet.amountToTake}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{tablet.totalAmount}}</p>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">Remove</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <br>
-                        </table>
+                                    <b>    Name:</b>  {{tablet.name}} , 
+                                    <b>    Dose:</b>  {{tablet.dose}} , 
+                                    <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
+                                    <b>    Total Amount:</b>  {{tablet.totalAmount}}
+                                    
+                                    <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">X</button>
                         
                         </div>
-
-
-
-
+  
+  
+  
+  
                 
                 <!--  <hr width="10" size="500"--> 
                     <div class="col-sm-6" id="rightside">
@@ -58,40 +34,23 @@
                         <h1 align="center">Tablets in Database</h1>
                     
                     
-                        <table class="table" style="width:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Tablet Name</th>
-                                    <th>Dose</th>
-                                    <th>Amount To Take</th>
-                                    <th>Total Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody ui-sortable>
-                                <tr ng-repeat="tablet in tablets" class="t-row">
-                                    <td>
-                                        <p>{{tablet.name}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{tablet.dose}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{tablet.amountToTake}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{tablet.totalAmount}}</p>
-                                    </td>
-                                    <td>
-                                        <br>
-                                        <button class="btn btn-xs pull-right btn-info" ng-click="addTabletToContainer(tablet)">Add To Container</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <br>
-                        </table>
+                        <ul  class="tablets">
+                            <li ng-repeat="tablet in tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
+                            <!--   <a href="#/tablets/{{tablet.id}}" class="thumb"><img ng-src="{{tablet.imageUrl}}"></a>  -->
+                            <img src="./img/pillsColour" width="90" height="90" class="pull-left"> 
+  
+                                    <b>    Name:</b>  {{tablet.name}} , 
+                                    <b>    Dose:</b>  {{tablet.dose}} , 
+                                    <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
+                                    <b>    Total Amount:</b>  {{tablet.totalAmount}}
+                                    
+                                    <button class="btn btn-xs pull-right btn-info" ng-click="addTabletToContainer(tablet)">Add To Container</button>
+  
+                            </li>
+                          </ul>
                     </div>
-
+  
             </div>
-
+  
             
         </div>

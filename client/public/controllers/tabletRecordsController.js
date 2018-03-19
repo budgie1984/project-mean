@@ -2,22 +2,39 @@
 var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('tabletRecordsController',
-    function($scope, $rootScope, $location, $routeParams, tabletService) {
+    function($scope, $rootScope, $location, $routeParams, containerService, tabletService) {
+
+
+        containerService.getContainers()
+        .success(function (data) {
+            console.log("called controller");
+            console.log(data);
+            let containers = data;
+            $scope.containers = containers;
+            console.log($scope.containers);
+
+        })
+        .error(function (err) {
+            $location.path("./home");
+        });
+   
+
 
 
         tabletService.getTablets()
-        .success(function(data) {
-            console.log("called controller");
-            console.log(data);
-            var tablets = data;
-            $scope.tablets = tablets;
-            console.log($scope.tablets);
-            $scope.orderProp = 'name';
+            .success(function(data) {
+                console.log("called controller");
+                console.log(data);
+                var tablets = data;
+                $scope.tablets = tablets;
+                console.log($scope.tablets);
+                $scope.orderProp = 'name';
 
-        })
-        .error(function(err) {
-            $location.path("./home");
-        });
+            })
+            .error(function(err) {
+                $location.path("./home");
+            });
+
 
 
 

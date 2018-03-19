@@ -23,7 +23,7 @@ tabletApp.controller('viewContainersController',
             $location.path("/viewContainer/" + $scope.currentContainer._id);
         };
 
-
+        
         $scope.currentContainer = containerService.getContainer($routeParams.containerId)
                 .success(function(data) {
                     $scope.currentContainer = data;
@@ -65,43 +65,43 @@ tabletApp.controller('viewContainersController',
 
 
 
-            $scope.addTabletToContainer = function(container,tablet) {
+            $scope.addTabletToContainer = function(tablet) {
+                var container = $scope.currentContainer;
+                var tab = $scope.currentTablet;
                 
-                $scope.currentContainer = containerService.getContainer($routeParams.containerId)
-                .success(function(container) {
-                    $scope.currentContainer = container;
-                });
-                $scope.currentTablet = tabletService.getTablet($routeParams.tabletId)
-                .success(function(tablet){
-                    $scope.currentTablet = tablet;
-                });
-
-                $scope.currentContainer.tablets = [];
-
-                var tabletToAdd = $scope.currentTablet;
-                var containerAddingTo = $scope.currentContainer.tablets;
-
-                containerAddingTo.push(tabletToAdd);
-                console.log(containerAddingTo);
-
-
-
-                // container.forEach(function(data) {
-                //     $scope.currentContainer.push($scope.currentTablet);
-                //     console.log($scope.currentContainer);
-                // });
-                // var container = ["tab1","tab2","tab3"];
-                
-                // for(var i = 0; i , container.length; i++){
-                //     console.log(container[i]);
-                // }
-                
-
+                console.log("****  container,", container);
+                console.log("**** tablet to add", tablet);
               
+                    
+                container.tablets.push(tablet);
+                console.log("new tablets", container.tablets);
+                console.log("container after adding in angular front end: ", container);
+                
+                containerService.updateContainer(container) 
+                .success(function(data) {
+                   console.log("data, ",  data);
+
+                })
+                .error(function (err) {
+                    $location.path("./landingpage");
+                });
             };
 
-            $scope.removeTabletFromContainer = function(){
 
+       
+
+            $scope.removeTabletFromContainer = function(tablet){
+                var index = tablets.indexOf(tablet);
+                $scope.currentContainer.splice(index,1);
+                
+                containerService.updateContainer(container) 
+                .success(function(data) {
+                   console.log("data, ",  data);
+
+                })
+                .error(function (err) {
+                    $location.path("./landingpage");
+                });
             };
 
             

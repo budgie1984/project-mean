@@ -1,64 +1,64 @@
- body {
-   padding-top: 20px;
-   background-color: darkcyan;
- }
+body {
+  padding-top: 20px;
+  background-color: darkcyan;
+}
 
- /* surround of tablet containers */
+/* surround of tablet containers */
 
- .tablets {
-   list-style: none;
-   /* background-color: black; */
-   padding-left: 10px;
-   padding-top: 20px;
-   padding-bottom: 10px;
-   padding-right: 10px;
- }
+.tablets {
+  list-style: none;
+  /* background-color: black; */
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
 
- /* individual tablet containers */
+/* individual tablet containers */
 
- .tablets li {
-   height: 95px;
-   padding-top: 15px;
-   padding-bottom: 15px;
-   border-color: black;
- }
-
- /*
-        entire container css
-     */
-
- .container {
-   background-color: black;
- }
-
-
- /* lower well where tablets are */
-
-
-
- .search {
+.tablets li {
+  height: 95px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-color: black;
+}
+
+/*
+       entire container css
+    */
+
+.container {
+  background-color: black;
+}
+
+
+/* lower well where tablets are */
+
+
+
+.search {
+ border-color: black;
 }
 
 
 /* landing page - jumbotron image*/
 .landing{
-  width: 60%;
+ width: 60%;
 }
- /* effects landing page and tablet details*/
+/* effects landing page and tablet details*/
 .jumbotron{
-  background-color: white;
+ background-color: white;
 }
 
 
 /**********************************/
- .thumb {
-   float: left;
-   margin: -0.5em 1em 1.5em 0;
-   padding-bottom: 1em;
-   height: 100px;
-   width: 100px;
- }
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
 
 
 
@@ -68,89 +68,89 @@
 
 
 
- /** Detail View **/
+/** Detail View **/
 
- img.tablet {
-   border: 1px solid black;
-   background-color: white;
-   padding: 2em;
-   height: 400px;
-   width: 400px;
- }
+img.tablet {
+  border: 1px solid black;
+  background-color: white;
+  padding: 2em;
+  height: 400px;
+  width: 400px;
+}
 
- ul.tablet-thumbs {
-   margin: 0;
-   list-style: none;
- }
-
- ul.tablet-thumbs li {
-   border: 1px solid black;
-   display: inline-block;
-   margin: 1em;
-   background-color: white;
- }
-
- ul.tablet-thumbs img {
-   height: 100px;
-   width: 100px;
-   padding: 1em;
-   
- }
-
-
-
- span {
-   font-weight: bold;
-   font-size: 1.2em;
- }
-
- dt {
-   font-weight: bold;
- }
-
- h1 {
-   border-bottom: 1px solid gray;
- }
-
-
-
- .tabs {
+ul.tablet-thumbs {
+  margin: 0;
   list-style: none;
-  /* background-color: black; */
-  padding-left: 15px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  padding-right: 5px;
+}
+
+ul.tablet-thumbs li {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 1em;
+  background-color: white;
+}
+
+ul.tablet-thumbs img {
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+  
+}
+
+
+
+span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
+}
+
+
+
+.tabs {
+ list-style: none;
+ /* background-color: black; */
+ padding-left: 15px;
+ padding-top: 20px;
+ padding-bottom: 10px;
+ padding-right: 5px;
 }
 
 /* individual tablet containers */
 
 .tabs li {
-  height: 40px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+ height: 40px;
+ padding-top: 5px;
+ padding-bottom: 5px;
 
-  border-color: black;
-  width: 100%;
+ border-color: black;
+ width: 100%;
 }
 
 
 .tabs2 li {
-  height: 55px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+ height: 55px;
+ padding-top: 5px;
+ padding-bottom: 5px;
 
-  border-color: black;
-  width: 100%;
+ border-color: black;
+ width: 100%;
 }
 
 
 .mycontainer{
-  background-color: darkcyan;
-  padding-top: 1em;
-  padding-bottom: 10em;
-  padding-left: 1em;
-  padding-right: 1em;
+ background-color: darkcyan;
+ padding-top: 1em;
+ padding-bottom: 10em;
+ padding-left: 1em;
+ padding-right: 1em;
 
 }
 
@@ -161,35 +161,35 @@
 
 
 #containerview{
-  background-color: black;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
+ background-color: black;
+ padding-top: 1em;
+ padding-left: 1em;
+ padding-right: 1em;
+ padding-top: 1em;
+ padding-bottom: 1em;
 
-  
+ 
 
 
 }
 
 #rightside{
-  background-color: whitesmoke;
-  padding-bottom: 1em;
-  float:right;
-  width: 49%;
+ background-color: whitesmoke;
+ padding-bottom: 1em;
+ float:right;
+ width: 49%;
 }
 
 #leftside{
-  background-color: whitesmoke;
-  width: 49%;
+ background-color: whitesmoke;
+ width: 49%;
 }
 
 #tabsincontainer{
-  width:45%;
+ width:45%;
 }
 
 #tabsindatabase{
 
-  float: right;
+ float: right;
 }

@@ -15,8 +15,9 @@ angular.module('tabletApp')
                 return $http.delete('api/deleteContainer/' + id);
             },
             updateContainer: function (container) {
-                console.log('updated service called ');
-                return $http.put('api/updateContainer/' + container.id, container);
+                console.log('updated service called ', container);
+                // this needed to be _id
+                return $http.put('api/updateContainer/' + container._id, container);
             }
         
         };
