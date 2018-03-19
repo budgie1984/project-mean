@@ -16,6 +16,8 @@ module.exports = (function() {
     api.get('/getContainer/:id', ContainerApi.getContainer);
     api.delete('/deleteContainer/:id', ContainerApi.deleteContainer);
     api.post('/createContainer', ContainerApi.createContainer);
+    api.put('/updateContainer/:id', ContainerApi.updateContainer);
+
 
     api.post('/createUser', UserApi.createUser);
     api.get('/getUsers', UserApi.getUsers);

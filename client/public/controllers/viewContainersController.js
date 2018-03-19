@@ -28,9 +28,10 @@ tabletApp.controller('viewContainersController',
                 .success(function(data) {
                     $scope.currentContainer = data;
                 })
-                .error(function(err) {
-                    $location.path("./home");
+                .error(function (err) {
+                    $location.path("./landingpage");
                 });
+
 
         $scope.deleteContainer = function (container) {
             console.log('tablet to delete, Tablet: ', container);
