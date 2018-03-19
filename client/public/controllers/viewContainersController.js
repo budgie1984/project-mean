@@ -64,17 +64,38 @@ tabletApp.controller('viewContainersController',
 
 
 
-            $scope.addTabletToContainer = function(tablet) {
+            $scope.addTabletToContainer = function(container,tablet) {
                 
                 $scope.currentContainer = containerService.getContainer($routeParams.containerId)
-                .success(function(data) {
-                    $scope.currentContainer = data;
+                .success(function(container) {
+                    $scope.currentContainer = container;
                 });
-                var container = [];
+                $scope.currentTablet = tabletService.getTablet($routeParams.tabletId)
+                .success(function(tablet){
+                    $scope.currentTablet = tablet;
+                });
+
+                $scope.currentContainer.tablets = [];
+
+                var tabletToAdd = $scope.currentTablet;
+                var containerAddingTo = $scope.currentContainer.tablets;
+
+                containerAddingTo.push(tabletToAdd);
+                console.log(containerAddingTo);
+
+
+
+                // container.forEach(function(data) {
+                //     $scope.currentContainer.push($scope.currentTablet);
+                //     console.log($scope.currentContainer);
+                // });
+                // var container = ["tab1","tab2","tab3"];
                 
+                // for(var i = 0; i , container.length; i++){
+                //     console.log(container[i]);
+                // }
                 
 
-                console.log('tablet added to container: ');
               
             };
 
