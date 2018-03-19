@@ -1,10 +1,10 @@
 var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('tabletDatabaseController',
-    function($scope, $rootScope, $location, $routeParams, tabletService) {
+    function ($scope, $rootScope, $location, $routeParams, tabletService) {
 
         tabletService.getTablets()
-            .success(function(data) {
+            .success(function (data) {
                 console.log("called controller");
                 console.log(data);
                 var tablets = data;
@@ -13,9 +13,25 @@ tabletApp.controller('tabletDatabaseController',
                 $scope.orderProp = 'name';
 
             })
-            .error(function(err) {
+            .error(function (err) {
                 $location.path("./home");
             });
+
+
+
+        $scope.addTablet = function (tablet) {
+            console.log(tablet);
+            tabletService.addTablet(tablet)
+                .success(function (data) {
+                    $scope.tablet = data;
+                    console.log("Tablet added to database", $scope.tablet);
+                })
+                .error(function (err) {
+                    $location.path("./home");
+                });
+        };
+
+
 
         $scope.viewTablet = (tablet) => {
             $scope.currentTablet = tablet;
@@ -23,33 +39,37 @@ tabletApp.controller('tabletDatabaseController',
         };
 
         $scope.currentTablet = tabletService.getTablet($routeParams.tabletId)
-            .success(function(data) {
+            .success(function (data) {
                 $scope.currentTablet = data;
             })
-            .error(function(err) {
+            .error(function (err) {
                 $location.path("./home");
             });
 
-        $scope.deleteTablet = function(tablet) {
+        $scope.deleteTablet = function (tablet) {
             console.log('tablet to delete, Tablet: ', tablet);
             tabletService.deleteTablet(tablet._id)
-                .then(function(res) {
+                .then(function (res) {
                     console.log('response to front', res);
-                     $location.path("/tabletdatabase");
+                    $location.path("/tabletdatabase");
                 });
         };
 
-        $scope.updateTablet = function(tablet) {
+
+
+
+
+        $scope.updateTablet = function (tablet) {
             tablet.id = $routeParams.tabletId;
             console.log('tablet to update SENT FROM THE UI HTML PAGE, Tablet: ', tablet);
             tabletService.updateTablet(tablet)
-                .success(function(res) {
+                .success(function (res) {
                     console.log('response to front', res);
                     $location.path("/tabletdatabase");
-                }) 
-                .error(function(err) {
-                $location.path("/home");
-            });
+                })
+                .error(function (err) {
+                    $location.path("/home");
+                });
         };
 
 

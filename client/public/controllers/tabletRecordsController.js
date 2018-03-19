@@ -5,7 +5,6 @@ tabletApp.controller('tabletRecordsController',
     function($scope, $rootScope, $location, $routeParams, tabletService) {
 
 
-    $scope.getTablets = function(){
         tabletService.getTablets()
         .success(function(data) {
             console.log("called controller");
@@ -13,11 +12,13 @@ tabletApp.controller('tabletRecordsController',
             var tablets = data;
             $scope.tablets = tablets;
             console.log($scope.tablets);
+            $scope.orderProp = 'name';
+
         })
         .error(function(err) {
             $location.path("./home");
         });
-    };
+
 
 
     //////// Timmys sample from his project, altered medsChannel variable he had to tabletChannel

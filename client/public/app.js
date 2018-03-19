@@ -17,11 +17,11 @@ var  tabletApp = angular.module('tabletApp', ['ngRoute']);
         })
          .when('/register', {
           templateUrl: 'partials/register.html',
-          controller: 'RegisterCtrl'
+          controller: 'userController'
         })
          .when('/login', {
           templateUrl: 'partials/login.html',
-          controller: 'LoginCtrl'
+          controller: 'userController'
         })
          .when('/home', {
           templateUrl: 'partials/home.html',

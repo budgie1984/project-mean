@@ -6,22 +6,22 @@
 
 
                 <div class="col-sm-6" id="leftside">
+                    
                         <h1 align="center">Tablets in Container</h1>
 
 
                                     <ul  class="tabs">
-                                            <h2><b>Brians Container</b> </h2>
-                                            <h3><b>{{currentContainer.name}} <b></h3>
+                                      
+                                            <h2><b>{{currentContainer.name}} <b></h2>
 
                                             <li ng-repeat="tablet in tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
-                                            <!--   <a href="#/tablets/{{tablet.id}}" class="thumb"><img ng-src="{{tablet.imageUrl}}"></a>  -->
                         
                                                     <b>    Name:</b>  {{tablet.name}} , 
                                                     <b>    Dose:</b>  {{tablet.dose}} , 
                                                     <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
                                                     <b>    Total Amount:</b>  {{tablet.totalAmount}}
                                                     
-                                                    <button class="btn btn-xs pull-right btn-danger" ng-click="addTabletToContainer(tablet)">X</button>
+                                                    <button class="btn btn-xs pull-right btn-danger" ng-click="">X</button>
                         
                                             </li>
                                         </ul>
@@ -42,7 +42,6 @@
 
                         <ul  class="tabs2">
                             <li ng-repeat="tablet in tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
-                            <!--   <a href="#/tablets/{{tablet.id}}" class="thumb"><img ng-src="{{tablet.imageUrl}}"></a>  -->
                             <img src="./img/pillsColour" width="90" height="90" class="pull-left"> 
 
                                     <b>    Name:</b>  {{tablet.name}} , 

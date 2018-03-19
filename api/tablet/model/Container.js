@@ -10,6 +10,7 @@ var ContainerSchema =  new mongoose.Schema({
         dose: String,
         amountToTake: String,
         totalAmount: String,
+        description: String,
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'tablet'

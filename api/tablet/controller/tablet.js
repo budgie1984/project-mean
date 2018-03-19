@@ -64,7 +64,9 @@ exports.updateTablet = function(req, res) {
              if(err) { 
                 return res.json(err);
                }
-             return res.send(200, 'Tablet update successful');
+             
+               return res.send(200, 'Tablet update successful');
+
          });
      });
   };

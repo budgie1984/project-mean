@@ -1,7 +1,7 @@
 var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('viewContainersController',
-    function ($scope, $rootScope, $location, containerService, tabletService) {
+    function ($scope, $rootScope, $location,$routeParams, containerService, tabletService) {
 
 
 
@@ -24,13 +24,13 @@ tabletApp.controller('viewContainersController',
         };
 
 
-        // $scope.currentContainer = containerService.getContainer($routeParams.containerId)
-        //         .success(function(data) {
-        //             $scope.currentContainer = data;
-        //         })
-        //         .error(function(err) {
-        //             $location.path("./home");
-        //         });
+        $scope.currentContainer = containerService.getContainer($routeParams.containerId)
+                .success(function(data) {
+                    $scope.currentContainer = data;
+                })
+                .error(function(err) {
+                    $location.path("./home");
+                });
 
         $scope.deleteContainer = function (container) {
             console.log('tablet to delete, Tablet: ', container);
@@ -59,12 +59,37 @@ tabletApp.controller('viewContainersController',
                 $location.path("./home");
             });
 
-            $scope.addTabletToContainer = function () {
+
+
+
+
+
+            $scope.addTabletToContainer = function(tablet) {
+                
+                $scope.currentContainer = containerService.getContainer($routeParams.containerId)
+                .success(function(data) {
+                    $scope.currentContainer = data;
+                });
+                var container = [];
+                
+                
+
                 console.log('tablet added to container: ');
               
             };
 
+            $scope.removeTabletFromContainer = function(){
+
+            };
+
+            
 
 
+            var tablet = function(tabletData){
+                this.name = tabletData.name;
+                this.dose = tabletData.dose;
+                this.amountToTake = tabletData.amountToTake;
+                this.totalAmount = tabletData.totalAmount;
+            };
             
     });

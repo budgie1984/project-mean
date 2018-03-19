@@ -3,8 +3,10 @@
 <div class="jumbotron">
     <div class="row">
         <div class="col-sm-6">
-                <h3><b>Description <b></h3>
-                <p>Tablet Description goes here at some point</p>
+                <h1><b>Description <b></h1>
+                    <p>Description will go here</p>
+
+                {{currentTablet.description}}
             </div>
 
 
@@ -14,6 +16,7 @@
                 <b>Dose:</b> {{currentTablet.dose}}
                 <b>Amount To Take:</b> {{currentTablet.amountToTake}}
                 <b>Total Amount:</b> {{currentTablet.totalAmount}}</p>
+
             </p>
 
             <form class="form">
@@ -26,6 +29,8 @@
                     <input type="text" class="form-control" placeholder="Enter amount to take" ng-model="tablet.amountToTake">
                     <label>Total Amount </label>
                     <input type="text" class="form-control" placeholder="Enter total amount" ng-model="tablet.totalAmount">
+                    <label>Description:</label>
+                    <textarea class="form-control" rows="5" placeholder="Enter description" placeholder="Enter total amount"ng-model="tablet.description"></textarea>
                     <button type="submit" class="btn pull-right btn-primary" ng-click="updateTablet(tablet)">Update Tablet</button>
 
 

@@ -6,7 +6,8 @@ var TabletSchema = new mongoose.Schema({
   name: String,
   dose: String,
   amountToTake: Number,
-  totalAmount: Number
+  totalAmount: Number,
+  description: String
 });
 
 // Export the Mongoose model
