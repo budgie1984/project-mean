@@ -2,7 +2,7 @@
 var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('tabletRecordsController',
-    function($scope, $rootScope, $location, $routeParams, containerService, tabletService) {
+    function($scope, $rootScope, $location, $routeParams, containerService, tabletService,$pubnubChannelGroup) {
 
 
         containerService.getContainers()

@@ -1,8 +1,7 @@
+<div class="container" id="containerview">
 
+                <h1 id="containerwell" class="well" align="center">Container Management</h1>
 
-        <div class="mycontainer">
-            <div class="row" id="containerview">
-                <h1 class="well" align="center">Container Management</h1>
   
   
                 <div class="col-sm-6" id="leftside">
@@ -10,17 +9,17 @@
                         <h1 align="center">Tablets in Container</h1>
   
   
-                       <h3> <b>{{currentContainer.name}}</b> </h3>
+                       <h3 align="left"> <b>{{currentContainer.name}}</b> </h3>
                      
                         <ul  class="tablets">
-                            <li ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
+                            <li id="tabsincontainer" ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                         
                                     <b>    Name:</b>  {{tablet.name}} , 
                                     <b>    Dose:</b>  {{tablet.dose}} , 
                                     <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
                                     <b>    Total Amount:</b>  {{tablet.totalAmount}}
                                     
-                                    <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">X</button>
+                                    <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">Remove From Container</button>
                         
                         </div>
   
@@ -44,7 +43,7 @@
                                     <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
                                     <b>    Total Amount:</b>  {{tablet.totalAmount}}
                                     
-                                    <button class="btn btn-xs pull-right btn-info" ng-click="addTabletToContainer(tablet)">Add To Container</button>
+                                    <button class="btn btn-xs pull-right btn-primary" ng-click="addTabletToContainer(tablet)">Add To Container</button>
   
                             </li>
                           </ul>
@@ -53,4 +52,4 @@
             </div>
   
             
-        </div>
+    

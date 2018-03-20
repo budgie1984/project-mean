@@ -145,19 +145,14 @@ h1 {
 }
 
 
-.mycontainer{
+/* .mycontainer{
  background-color: darkcyan;
  padding-top: 1em;
  padding-bottom: 10em;
  padding-left: 1em;
  padding-right: 1em;
 
-}
-
-
-
-
-
+} */
 
 
 #containerview{
@@ -167,29 +162,32 @@ h1 {
  padding-right: 1em;
  padding-top: 1em;
  padding-bottom: 1em;
-
- 
-
+width: 95%;
 
 }
 
+
+/* Container detail view - Tabs in Database */
 #rightside{
  background-color: whitesmoke;
  padding-bottom: 1em;
  float:right;
  width: 49%;
 }
-
+/* Container detail view - Tabs in Container */
 #leftside{
  background-color: whitesmoke;
  width: 49%;
 }
 
 #tabsincontainer{
- width:45%;
+ text-align: left;
+ height:50px;
 }
-
-#tabsindatabase{
+#navbar{
+background-color: black;
+}
+/* #tabsindatabase{
 
  float: right;
-}
+} */

@@ -112,4 +112,30 @@ tabletApp.controller('viewContainersController',
                 this.totalAmount = tabletData.totalAmount;
             };
             
+
+
+    //////// Timmys sample from his project, altered medsChannel variable he had to tabletChannel
+    /////// and changed pub/sub keys
+        // var pubnubDemo = new PubNub({
+        //     publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
+        //     subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5'
+        // });
+        // $scope.tabletChannel = 'tabletbox';
+
+    
+        //     // Subscribing to the ‘meds’ channel and trigering the message callback
+        //     Pubnub.subscribe({
+        //         channel: $scope.tabletChannel,
+        //         triggerEvents: ['callback']
+        //     });
+    
+        //     // Listening to the callbacks
+        //     $scope.$on(Pubnub.getMessageEventNameFor($scope.tabletChannel), function (ngEvent, m) {
+        //         $scope.$apply(function () {
+        //             $scope.tabletMessage = m;
+        //         });
+        //     });
+
+
+
     });
