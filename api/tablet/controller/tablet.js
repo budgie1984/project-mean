@@ -10,6 +10,7 @@ exports.createTablet = function (req, res) {
     tablet.dose = req.body.dose;
     tablet.amountToTake = req.body.amountToTake;
     tablet.totalAmount = req.body.totalAmount;
+    tablet.description = req.body.description;
     console.log("**** Tablet to save: ", tablet);
     // Save the tablet and check for errors
     tablet.save(function (err) {
@@ -60,6 +61,7 @@ exports.updateTablet = function(req, res) {
          tablet.dose = req.body.dose;
          tablet.amountToTake = req.body.amountToTake;
          tablet.totalAmount = req.body.totalAmount;
+         tablet.description = req.body.description;
          tablet.save(function (err) {
              if(err) { 
                 return res.json(err);
