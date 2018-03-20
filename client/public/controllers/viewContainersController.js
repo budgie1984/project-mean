@@ -67,11 +67,9 @@ tabletApp.controller('viewContainersController',
 
             $scope.addTabletToContainer = function(tablet) {
                 var container = $scope.currentContainer;
-                var tab = $scope.currentTablet;
                 
                 console.log("****  container,", container);
                 console.log("**** tablet to add", tablet);
-              
                     
                 container.tablets.push(tablet);
                 console.log("new tablets", container.tablets);
