@@ -2,7 +2,7 @@ var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('viewContainersController',
     function ($scope, $rootScope, $location,$routeParams,
-             containerService, tabletService,Pubnub) {
+             containerService, tabletService) {
 
 
 
@@ -81,13 +81,11 @@ tabletApp.controller('viewContainersController',
                 });
             };
 
-
-       // not working yet
             $scope.removeTabletFromContainer = function(tablet){
                 var container = $scope.currentContainer;
                 var index = container.tablets.indexOf(tablet);
               
-                container.splice(index,1);
+                container.tablets.splice(index,1);
                 
                 containerService.updateContainer(container) 
                 .success(function(data) {
@@ -110,7 +108,7 @@ tabletApp.controller('viewContainersController',
 
 
 
- ////////// index.html file sample - this displays the message in the console
+ // this works if its in its own single html file between script tags with the sdk v4 pubnub link
 
         // var pubnubDemo = new PubNub({
         //     publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
@@ -136,69 +134,73 @@ tabletApp.controller('viewContainersController',
         //       },
         //     channel: 'tabletbox'
         // });
-        
-        $scope.tabletChannel = 'tabletbox';
-
-        function subTablets(){
-        Pubnub.init({
-            publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
-            subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
-
-        });
-
-        Pubnub.publish({
-            channel:  $scope.tabletChannel,
-            message: 'Hello!',
-            triggerEvents: ['callback']
-          });
-
-        Pubnub.subscribe({
-            channels  : [$scope.tabletChannel],
-            channelGroups: [$scope.selectedChannelGroup],
-            withPresence: true,
-            triggerEvents: ['message', 'presence', 'status']
-          });
-
-        }
-        
-        subTablets();
-    
-
-
-
-    //////// Timmys sample from his project with my keys and channel
-        //  $scope.tabletChannel = 'tabletbox';
+    ///////////////////////////////////////////////////    
        
-        //  function subTablets(){
-        //      Pubnub.init({
-        //          publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
-        //          subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
-        //          uuid: $scope.uuid
-
-        //      });
-            
-        //     Pubnub.publish({
-        //         channel: $scope.tabletChannel,
-        //         message: 'Hello!',
-        //         callback: function (m) {console.log(m);},
-        //         error: function(err) {console.log(err);}
-        //     });
-        //     // Subscribing to the ‘tabletbox’ channel and trigering the message callback
-        //     Pubnub.subscribe({
-        //         channel: $scope.tabletChannel,
-        //         triggerEvents: ['callback']
-        //     });
     
-        //     // Listening to the callbacks
-        //     $scope.$on(Pubnub.getMessageEventNameFor($scope.tabletChannel), function (ngEvent, m) {
-        //         $scope.$apply(function () {
-        //             $scope.tabletMessage = m;
-        //         });
-        //     });
+    
+    
+    // $scope.tabletChannel = 'tabletbox';
+
+    //     function subTablets(){
+    //     Pubnub.init({
+    //         publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
+    //         subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
+
+    //     });
+
+    //     Pubnub.publish({
+    //         channel:  $scope.tabletChannel,
+    //         message: 'Hello!',
+    //         triggerEvents: ['callback']
+    //       });
+
+    //     Pubnub.subscribe({
+    //         channels  : [$scope.tabletChannel],
+    //         channelGroups: [$scope.selectedChannelGroup],
+    //         withPresence: true,
+    //         triggerEvents: ['message', 'presence', 'status']
+    //       });
+
+    //     }
+        
+    //     subTablets();
+    
 
 
-        // }
-        // subTablets();
+
+    // ////// Timmys sample from his project with my keys and channel (uses two skd v3 links)
+    //      $scope.tabletChannel = 'tabletbox';
+       
+    //      function subTablets(){
+    //          Pubnub.init({
+    //              publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
+    //              subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
+    //              uuid: $scope.uuid
+
+    //          });
+            
+    //         Pubnub.publish({
+    //             channel: $scope.tabletChannel,
+    //             message: 'Hello!',
+    //             callback: function (m) {console.log(m);},
+    //             error: function(err) {console.log(err);}
+    //         });
+    //         // Subscribing to the ‘tabletbox’ channel and trigering the message callback
+    //         Pubnub.subscribe({
+    //             channel: $scope.tabletChannel,
+    //             triggerEvents: ['callback']
+    //         });
+    
+    //         // Listening to the callbacks
+    //         $scope.$on(Pubnub.getMessageEventNameFor($scope.tabletChannel), function (ngEvent, m) {
+    //             $scope.$apply(function () {
+    //                 $scope.tabletMessage = m;
+    //             });
+    //         });
+
+
+    //     }
+    //     subTablets();
 
 
 

@@ -16,7 +16,6 @@ angular.module('tabletApp')
             },
             updateContainer: function (container) {
                 console.log('updated service called ', container);
-                // this needed to be _id
                 return $http.put('api/updateContainer/' + container._id, container);
             }
         
