@@ -73,4 +73,4 @@ tabletApp.controller('tabletDatabaseController',
         };
 
 
-    });
+ });

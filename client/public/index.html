@@ -11,7 +11,18 @@
 </head>
 <body>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.20.1.js"></script>
+
+<!-- SDK V4 links -->
+  <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.20.1.js"></script>  
+ 
+  <!-- <script src="http(s)://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-4.0.2.js"></script> -->
+
+<!-- SDK V3 links -->
+ <!-- <script src="https://cdn.pubnub.com/pubnub-3.7.21.js"></script>
+ <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.2.1.js"></script>
+ -->
+
+
    
     <nav class="navbar navbar-inverse" id="navbar">
         <div class="container-fluid">
@@ -36,12 +47,14 @@
           </ul>
         </div>
       </nav>
-
+      
       <div class="container-fluid">
           <div ng-view ></div>         
       </div>
+
           <script src="../scripts/angular.min.js"></script>
           <script src="../scripts/angular-route.min.js"></script>
+
           <script src="app.js"></script>
           <script src="../controllers/homeController.js"></script>
           <script src="../controllers/tabletDatabaseController.js"></script>

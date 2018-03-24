@@ -63,11 +63,6 @@ body {
 
 
 
-
-
-
-
-
 /** Detail View **/
 
 img.tablet {
@@ -88,7 +83,7 @@ ul.tablet-thumbs li {
   display: inline-block;
   margin: 1em;
   background-color: white;
-}
+}pull-right
 
 ul.tablet-thumbs img {
   height: 100px;
@@ -106,7 +101,7 @@ span {
 
 dt {
   font-weight: bold;
-}
+}pull-right
 
 h1 {
   border-bottom: 1px solid gray;
@@ -145,14 +140,14 @@ h1 {
 }
 
 
-/* .mycontainer{
+.mycontainer{
  background-color: darkcyan;
  padding-top: 1em;
  padding-bottom: 10em;
  padding-left: 1em;
  padding-right: 1em;
 
-} */
+} 
 
 
 #containerview{
@@ -162,7 +157,7 @@ h1 {
  padding-right: 1em;
  padding-top: 1em;
  padding-bottom: 1em;
-width: 95%;
+ width: 100%;
 
 }
 
@@ -170,7 +165,7 @@ width: 95%;
 /* Container detail view - Tabs in Database */
 #rightside{
  background-color: whitesmoke;
- padding-bottom: 1em;
+
  float:right;
  width: 49%;
 }
@@ -183,10 +178,21 @@ width: 95%;
 #tabsincontainer{
  text-align: left;
  height:50px;
+  
+}
+
+#righttabs{
+text-align: left;
 }
 #navbar{
 background-color: black;
 }
+
+#righttabs{
+  width: 100%;
+}
+
+
 /* #tabsindatabase{
 
  float: right;

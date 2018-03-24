@@ -1,12 +1,12 @@
-var  tabletApp = angular.module('tabletApp', ['ngRoute']);
+var  tabletApp = angular.module('tabletApp',['ngRoute',/*'pubnub.angular.service'*/]);
 
     tabletApp.config(['$routeProvider',
       function($routeProvider) {
         $routeProvider
-        .when('/tablets', {
-          templateUrl: 'partials/tablet-list.html',
-          controller: 'TabletListCtrl'
-        })
+        // .when('/tablets', {
+        //   templateUrl: 'partials/tablet-list.html',
+        //   controller: 'TabletListCtrl'
+        // })
         .when('/viewTablet/:tabletId', {
           templateUrl: 'partials/tablet-detail.html',
           controller: 'tabletDatabaseController'

@@ -1,7 +1,8 @@
 var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('viewContainersController',
-    function ($scope, $rootScope, $location,$routeParams, containerService, tabletService) {
+    function ($scope, $rootScope, $location,$routeParams,
+             containerService, tabletService,Pubnub) {
 
 
 
@@ -44,8 +45,6 @@ tabletApp.controller('viewContainersController',
         };
 
 
-
-
         tabletService.getTablets()
             .success(function(data) {
                 console.log("called controller");
@@ -54,14 +53,11 @@ tabletApp.controller('viewContainersController',
                 $scope.tablets = tablets;
                 console.log($scope.tablets);
                 $scope.orderProp = 'name';
-
+                $pubnubChannel
             })
             .error(function(err) {
                 $location.path("./home");
             });
-
-
-
 
 
 
@@ -86,11 +82,12 @@ tabletApp.controller('viewContainersController',
             };
 
 
-       
-
+       // not working yet
             $scope.removeTabletFromContainer = function(tablet){
-                var index = tablets.indexOf(tablet);
-                $scope.currentContainer.splice(index,1);
+                var container = $scope.currentContainer;
+                var index = container.tablets.indexOf(tablet);
+              
+                container.splice(index,1);
                 
                 containerService.updateContainer(container) 
                 .success(function(data) {
@@ -102,8 +99,6 @@ tabletApp.controller('viewContainersController',
                 });
             };
 
-            
-
 
             var tablet = function(tabletData){
                 this.name = tabletData.name;
@@ -114,16 +109,81 @@ tabletApp.controller('viewContainersController',
             
 
 
-    //////// Timmys sample from his project, altered medsChannel variable he had to tabletChannel
-    /////// and changed pub/sub keys
+
+ ////////// index.html file sample - this displays the message in the console
+
         // var pubnubDemo = new PubNub({
         //     publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
         //     subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5'
         // });
-        // $scope.tabletChannel = 'tabletbox';
-
     
-        //     // Subscribing to the ‘meds’ channel and trigering the message callback
+
+        // // // Subscribe to the tabletbox channel
+        // pubnubDemo.addListener({
+        //        message: function(message){
+        //       console.log(message)
+        //       document.write();
+        //   }
+        // })
+
+        // pubnubDemo.subscribe({
+        //     channels: ['tabletbox']
+        // });
+        
+        // pubnubDemo.publish({
+        //      message: {
+        //       "color" : "blue"
+        //       },
+        //     channel: 'tabletbox'
+        // });
+        
+        $scope.tabletChannel = 'tabletbox';
+
+        function subTablets(){
+        Pubnub.init({
+            publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
+            subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
+
+        });
+
+        Pubnub.publish({
+            channel:  $scope.tabletChannel,
+            message: 'Hello!',
+            triggerEvents: ['callback']
+          });
+
+        Pubnub.subscribe({
+            channels  : [$scope.tabletChannel],
+            channelGroups: [$scope.selectedChannelGroup],
+            withPresence: true,
+            triggerEvents: ['message', 'presence', 'status']
+          });
+
+        }
+        
+        subTablets();
+    
+
+
+
+    //////// Timmys sample from his project with my keys and channel
+        //  $scope.tabletChannel = 'tabletbox';
+       
+        //  function subTablets(){
+        //      Pubnub.init({
+        //          publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
+        //          subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
+        //          uuid: $scope.uuid
+
+        //      });
+            
+        //     Pubnub.publish({
+        //         channel: $scope.tabletChannel,
+        //         message: 'Hello!',
+        //         callback: function (m) {console.log(m);},
+        //         error: function(err) {console.log(err);}
+        //     });
+        //     // Subscribing to the ‘tabletbox’ channel and trigering the message callback
         //     Pubnub.subscribe({
         //         channel: $scope.tabletChannel,
         //         triggerEvents: ['callback']
@@ -137,5 +197,13 @@ tabletApp.controller('viewContainersController',
         //     });
 
 
+        // }
+        // subTablets();
 
-    });
+
+
+
+
+
+
+ });

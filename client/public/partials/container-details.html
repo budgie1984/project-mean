@@ -9,9 +9,23 @@
                         <h1 align="center">Tablets in Container</h1>
   
   
-                       <h3 align="left"> <b>{{currentContainer.name}}</b> </h3>
+                       <!-- <h3 align="left"> <b>{{currentContainer.name}}</b> </h3> -->
                      
-                        <ul  class="tablets">
+
+                       <thead>
+                        <tr>
+                            <th><b>Name: </b>{{currentContainer.name}}</th>
+                            <th>|</th>
+                            <th><b>Status:</b>Taken</th>
+                            <th>|</th>
+                            <th><b>Time:</b></th>
+
+                        </tr>
+                    </thead>
+
+
+
+                        <ul  class="tablets" >
                             <li id="tabsincontainer" ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                         
                                     <b>    Name:</b>  {{tablet.name}} , 
@@ -19,37 +33,36 @@
                                     <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
                                     <b>    Total Amount:</b>  {{tablet.totalAmount}}
                                     
-                                    <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">Remove From Container</button>
+                                    <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">Remove</button>
                         
-                        </div>
+                        </div> 
+
+
+
+
   
-  
-  
-  
-                
-                <!--  <hr width="10" size="500"--> 
                     <div class="col-sm-6" id="rightside">
                     
                         <h1 align="center">Tablets in Database</h1>
                     
                     
-                        <ul  class="tablets">
+                        <ul  class="tablets" id="righttabs">
                             <li ng-repeat="tablet in tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
-                            <!--   <a href="#/tablets/{{tablet.id}}" class="thumb"><img ng-src="{{tablet.imageUrl}}"></a>  -->
-                            <img src="./img/pillsColour" width="90" height="90" class="pull-left"> 
-  
+                                
+                                <img src="./img/pillsColour" width="90" height="90" class="pull-left"> 
+                                
                                     <b>    Name:</b>  {{tablet.name}} , 
                                     <b>    Dose:</b>  {{tablet.dose}} , 
                                     <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
                                     <b>    Total Amount:</b>  {{tablet.totalAmount}}
                                     
-                                    <button class="btn btn-xs pull-right btn-primary" ng-click="addTabletToContainer(tablet)">Add To Container</button>
-  
+                                    <button class="btn btn-xs pull-right btn-primary" ng-click="addTabletToContainer(tablet)">Add to Container</button>
+                                
                             </li>
                           </ul>
                     </div>
   
-            </div>
+</div>
   
             
     
