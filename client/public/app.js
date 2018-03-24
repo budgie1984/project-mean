@@ -1,4 +1,4 @@
-var  tabletApp = angular.module('tabletApp',['ngRoute',/*'pubnub.angular.service'*/]);
+var  tabletApp = angular.module('tabletApp',['ngRoute','pubnub.angular.service']);
 
     tabletApp.config(['$routeProvider',
       function($routeProvider) {
