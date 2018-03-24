@@ -2,7 +2,7 @@ var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('viewContainersController',
     function ($scope, $rootScope, $location,$routeParams,
-             containerService, tabletService) {
+             containerService, tabletService /*, Pubnub, $pubnubChannel, $pubnubChannelGroup */){
 
 
 
@@ -53,7 +53,6 @@ tabletApp.controller('viewContainersController',
                 $scope.tablets = tablets;
                 console.log($scope.tablets);
                 $scope.orderProp = 'name';
-                $pubnubChannel
             })
             .error(function(err) {
                 $location.path("./home");
@@ -66,7 +65,14 @@ tabletApp.controller('viewContainersController',
                 
                 console.log("****  container,", container);
                 console.log("**** tablet to add", tablet);
-                    
+                
+                // for(var i = 0; i < container.length; i++){
+                // if(!container[i].contains(tablet))
+                //     {
+                //         container.tablets.push(tablet);
+                //     }
+                // }
+
                 container.tablets.push(tablet);
                 console.log("new tablets", container.tablets);
                 console.log("container after adding in angular front end: ", container);
@@ -108,36 +114,62 @@ tabletApp.controller('viewContainersController',
 
 
 
- // this works if its in its own single html file between script tags with the sdk v4 pubnub link
+ // https://www.pubnub.com/docs/angularjs-javascript/data-streams-publish-and-subscribe
 
-        // var pubnubDemo = new PubNub({
+        // Pubnub.init({
         //     publishKey: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
         //     subscribeKey: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5'
         // });
-    
-
-        // // // Subscribe to the tabletbox channel
-        // pubnubDemo.addListener({
-        //        message: function(message){
-        //       console.log(message)
-        //       document.write();
-        //   }
-        // })
-
-        // pubnubDemo.subscribe({
-        //     channels: ['tabletbox']
-        // });
         
-        // pubnubDemo.publish({
-        //      message: {
-        //       "color" : "blue"
-        //       },
-        //     channel: 'tabletbox'
-        // });
-    ///////////////////////////////////////////////////    
+
+        // Pubnub.publish(
+        //     {
+        //         message: { 
+        //             such: 'Hello!'
+        //         },
+        //         channel: 'tabletbox'
+        //     },
+        //     function (status, response) {
+        //         if (status.error) {
+        //             console.log(status)
+        //         } else {
+        //             console.log("message Published w/ timetoken", response.timetoken)
+        //         }
+        //     }
+        // );
+
+
+        // // Subscribe to a channel
+        //     Pubnub.addListener({
+        //         status: function(statusEvent) {
+        //             if (statusEvent.category === "PNUnknownCategory") {
+        //                 var newState = {
+        //                     new: 'error'
+        //                 };
+        //                 Pubnub.setState(
+        //                     { 
+        //                         state: newState 
+        //                     }, 
+        //                     function (status) {
+        //                         console.log(statusEvent.errorData.message)
+        //                     }
+        //                 );
+        //             }
+        //         },
+        //         message: function(message) {
+        //             console.log(message)
+        //         }
+        //     })
+            
+        //     Pubnub.subscribe({
+        //         channels: ['tabletbox']
+        //     });
+
+
+
        
     
-    
+///////////////////////////////////////////////////////////////////////////    
     
     // $scope.tabletChannel = 'tabletbox';
 
