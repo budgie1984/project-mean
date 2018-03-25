@@ -7,7 +7,7 @@ var path = require('path');
 
 var bodyParser = require('body-parser');
 
-var pubNub = require('pubnub');
+//var pubNub = require('pubnub');
 
 
 // var MongoClient = require('mongodb').MongoClient;
