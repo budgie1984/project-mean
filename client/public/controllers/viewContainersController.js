@@ -120,8 +120,19 @@ tabletApp.controller('viewContainersController',
                 });
                 $rootScope.$on(Pubnub.getMessageEventNameFor($scope.tabletChannel), function (ngEvent, message) {
                     $scope.$apply(function () {
-                        $scope.tabletBoxMessage = message;
 
+                        $scope.tabletBoxMessage = message; // Displays Pubnub Message
+                        console.log(message);
+                        var expectedMessage = 'Tablets Taken';
+                        var container = $scope.currentContainer; // get the current container
+
+                        if($scope.tabletBoxMessage === expectedMessage){
+                            // update total amount field for tablets in container, Amount to take minus Total Amount
+                            container.updateContainer(tablets);
+                        }
+                        else{
+                            $scope.tabletBoxMessage = "Not Taken";
+                        }
                         console.log(message);
                     });
                 });

@@ -103,8 +103,10 @@ dt {
   font-weight: bold;
 }pull-right
 
-h1 {
-  border-bottom: 1px solid gray;
+h1{
+    background-color: black;
+    border-bottom:  5px solid black;
+    
 }
 
 
