@@ -5,12 +5,12 @@ tabletApp.controller('viewContainersController',
              containerService, tabletService , Pubnub, $pubnubChannel, $pubnubChannelGroup ){
 
 
-
+        // gets all containers in db
         containerService.getContainers()
             .success(function (data) {
                 console.log("called controller");
                 console.log(data);
-                let containers = data;
+                var containers = data;
                 $scope.containers = containers;
                 console.log($scope.containers);
 
@@ -24,7 +24,7 @@ tabletApp.controller('viewContainersController',
             $location.path("/viewContainer/" + $scope.currentContainer._id);
         };
 
-        
+        // function to get the current container by it id
         $scope.currentContainer = containerService.getContainer($routeParams.containerId)
                 .success(function(data) {
                     $scope.currentContainer = data;
@@ -33,7 +33,7 @@ tabletApp.controller('viewContainersController',
                     $location.path("./landingpage");
                 });
 
-
+        // function to delete a container
         $scope.deleteContainer = function (container) {
             console.log('tablet to delete, Tablet: ', container);
             containerService.deleteContainer(container._id)
@@ -44,7 +44,7 @@ tabletApp.controller('viewContainersController',
                 });
         };
 
-
+        // get tablets via tablet service
         tabletService.getTablets()
             .success(function(data) {
                 console.log("called controller");
@@ -59,25 +59,18 @@ tabletApp.controller('viewContainersController',
             });
 
 
-
+            // add tablets to selected container
             $scope.addTabletToContainer = function(tablet) {
-                var container = $scope.currentContainer;
+                var container = $scope.currentContainer; // get the container
                 
                 console.log("****  container,", container);
                 console.log("**** tablet to add", tablet);
                 
-                // for(var i = 0; i < container.length; i++){
-                // if(!container[i].contains(tablet))
-                //     {
-                //         container.tablets.push(tablet);
-                //     }
-                // }
-
-                container.tablets.push(tablet);
+                container.tablets.push(tablet); // push a tablet to it
                 console.log("new tablets", container.tablets);
                 console.log("container after adding in angular front end: ", container);
                 
-                containerService.updateContainer(container) 
+                containerService.updateContainer(container) // update the container
                 .success(function(data) {
                    console.log("data, ",  data);
 
@@ -86,14 +79,14 @@ tabletApp.controller('viewContainersController',
                     $location.path("./landingpage");
                 });
             };
-
+            // remove a tablet from the container
             $scope.removeTabletFromContainer = function(tablet){
-                var container = $scope.currentContainer;
-                var index = container.tablets.indexOf(tablet);
+                var container = $scope.currentContainer; // get he current container
+                var index = container.tablets.indexOf(tablet); 
               
-                container.tablets.splice(index,1);
+                container.tablets.splice(index,1); // remove th eindex of the slected tablet
                 
-                containerService.updateContainer(container) 
+                containerService.updateContainer(container) // update the container afterwrads 
                 .success(function(data) {
                    console.log("data, ",  data);
 
@@ -103,7 +96,7 @@ tabletApp.controller('viewContainersController',
                 });
             };
 
-
+            // Model for Tablets
             var tablet = function(tabletData){
                 this.name = tabletData.name;
                 this.dose = tabletData.dose;
@@ -112,7 +105,7 @@ tabletApp.controller('viewContainersController',
             };
             
 
-
+            // Subscribing to PubNub
             $scope.tabletChannel = 'tabletbox';
 
             function subTablets() {
@@ -136,7 +129,6 @@ tabletApp.controller('viewContainersController',
             
             }
  
-
           subTablets();
 
 

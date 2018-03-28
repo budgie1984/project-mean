@@ -37,6 +37,7 @@ var port = process.env.PORT || 3000;
 var db;
 
 db = 'mongodb://127.0.0.1:27017/tabletApp';
+//db = 'mongodb://52.48.89.197:27017/tabletApp'; // tryin to cnnect to aws mongodb
 
 
 app.listen(port);
@@ -51,14 +52,6 @@ mongoose.connect(db, function(err) {
 });
 
 
-
-// MongoClient.connect(MONGO_URL, function(err) {
-//     if (err) {
-//         console.log("Error ", err);
-//     } else {
-//         console.log('Connected to database');
-//     }
-// });
 
 
 var api = require('./routes');

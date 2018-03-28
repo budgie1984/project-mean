@@ -3,6 +3,7 @@ var tabletApp = angular.module('tabletApp');
 tabletApp.controller('tabletDatabaseController',
     function ($scope, $rootScope, $location, $routeParams, tabletService) {
 
+        // get all tablets in the db
         tabletService.getTablets()
             .success(function (data) {
                 console.log("called controller");
@@ -18,26 +19,12 @@ tabletApp.controller('tabletDatabaseController',
             });
 
 
-
-        $scope.addTablet = function (tablet) {
-            console.log(tablet);
-            tabletService.addTablet(tablet)
-                .success(function (data) {
-                    $scope.tablet = data;
-                    console.log("Tablet added to database", $scope.tablet);
-                })
-                .error(function (err) {
-                    $location.path("./home");
-                });
-        };
-
-
-
+        // view a single tablet by getting it id
         $scope.viewTablet = (tablet) => {
             $scope.currentTablet = tablet;
             $location.path("/viewTablet/" + $scope.currentTablet._id);
         };
-
+        // get the current tablet
         $scope.currentTablet = tabletService.getTablet($routeParams.tabletId)
             .success(function (data) {
                 $scope.currentTablet = data;
@@ -46,6 +33,7 @@ tabletApp.controller('tabletDatabaseController',
                 $location.path("./home");
             });
 
+        // delete a tablet by its id
         $scope.deleteTablet = function (tablet) {
             console.log('tablet to delete, Tablet: ', tablet);
             tabletService.deleteTablet(tablet._id)
