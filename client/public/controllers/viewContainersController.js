@@ -2,7 +2,7 @@ var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('viewContainersController',
     function ($scope, $rootScope, $location,$routeParams,
-             containerService, tabletService , Pubnub, $pubnubChannel, $pubnubChannelGroup ){
+             containerService, tabletService , Pubnub, $pubnubChannel, $pubnubChannelGroup,$timeout ){
 
 
         // gets all containers in db
@@ -19,7 +19,7 @@ tabletApp.controller('viewContainersController',
                 $location.path("./home");
             });
 
-        $scope.viewContainer = (container) => {
+        $scope.viewContainer = function(container)  {
             $scope.currentContainer = container;
             $location.path("/viewContainer/" + $scope.currentContainer._id);
         };
@@ -34,7 +34,7 @@ tabletApp.controller('viewContainersController',
                 });
 
         // function to delete a container
-        $scope.deleteContainer = function (container) {
+        $scope.deleteContainer = function(container) {
             console.log('tablet to delete, Tablet: ', container);
             containerService.deleteContainer(container._id)
                 .then(function (res) {
@@ -108,7 +108,7 @@ tabletApp.controller('viewContainersController',
             // Subscribing to PubNub
             $scope.tabletChannel = 'tabletbox';
 
-            function subTablets() {
+            (function subTablets() {
                 Pubnub.init({
                     publish_key: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
                     subscribe_key: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
@@ -126,21 +126,33 @@ tabletApp.controller('viewContainersController',
                         var expectedMessage = 'Tablets Taken';
                         var container = $scope.currentContainer; // get the current container
 
-                        if($scope.tabletBoxMessage === expectedMessage){
+                        if ($scope.tabletBoxMessage === expectedMessage) {
                             // update total amount field for tablets in container, Amount to take minus Total Amount
-                            container.updateContainer(tablets);
-                        }
-                        else{
+                            //container.updateContainer(tablets);
+                            container.tablets.forEach(function (tablet) {
+                                tablet.totalAmount = (tablet.totalAmount - tablet.amountToTake);
+                                console.log(tablet);
+                                
+                                containerService.updateContainer(container) // update the container afterwrads 
+                                .success(function(data) {
+                                   console.log("data, ",  data);
+                                   return data;
+                
+                                })
+                                .error(function (err) {
+                                    $location.path("./landingpage");
+                                });
+                            });
+                        } else {
                             $scope.tabletBoxMessage = "Not Taken";
                         }
                         console.log(message);
                     });
                 });
 
-            
-            }
- 
-          subTablets();
+                })();
+                // get todays date
+                $scope.date = new Date(Date.now()).toDateString();
 
 
  });

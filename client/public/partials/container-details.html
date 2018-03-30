@@ -9,19 +9,9 @@
                         <h1 align="center">Tablets in Container</h1>
   
 
-
-                       <thead>
-                        <tr>
-                            <th><b>Name: </b>{{currentContainer.name}}</th>
-                            <th>|</th>
-                            <th><b>Tablets Status:</b>{{tabletBoxMessage}}</th>
-                            <th>|</th>
-                            <th><b>Time:</b>{{tabletBoxMessage['time']}}</th>
-
-                        </tr>
-                    </thead>
-
-
+                <div id="containerdata" class="well">  
+                <h4>    <b>Name:</b> {{currentContainer.name}},<b>Status:</b> {{tabletBoxMessage}},<b>Date:</b> {{date}}
+                </div>
 
                         <ul  class="tablets" >
                             <li id="tabsincontainer" ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">

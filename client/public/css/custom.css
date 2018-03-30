@@ -23,9 +23,7 @@ body {
   border-color: black;
 }
 
-/*
-       entire container css
-    */
+/* black backround container on all pages */
 
 .container {
   background-color: black;
@@ -101,11 +99,10 @@ span {
 
 dt {
   font-weight: bold;
-}pull-right
+}
 
 h1{
-    background-color: black;
-    border-bottom:  5px solid black;
+    border-bottom:  1px solid black;
     
 }
 
@@ -154,10 +151,10 @@ h1{
 
 #containerview{
  background-color: black;
- padding-top: 1em;
+ 
  padding-left: 1em;
  padding-right: 1em;
- padding-top: 1em;
+ 
  padding-bottom: 1em;
  width: 100%;
 
@@ -186,6 +183,8 @@ h1{
 #righttabs{
 text-align: left;
 }
+
+/* main navigation bar*/
 #navbar{
 background-color: black;
 }
@@ -194,6 +193,14 @@ background-color: black;
   width: 100%;
 }
 
+/* Container Name, Status, Date*/
+#containerdata{
+  background-color: white;
+  border-color: black;
+  padding-top: 1em;
+  padding-left: 1em;
+  text-align: center;
+}
 
 /* #tabsindatabase{
 
