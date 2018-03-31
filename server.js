@@ -36,8 +36,10 @@ var port = process.env.PORT || 3000;
 
 var db;
 
-db = 'mongodb://127.0.0.1:27017/tabletApp';
-//db = 'mongodb://52.48.89.197:27017/tabletApp'; // tryin to cnnect to aws mongodb
+//db = 'mongodb://127.0.0.1:27017/tabletApp';
+//db = 'mongodb://34.253.237.111:27017/tabletApp'; // tryin to cnnect to aws mongodb
+
+db = 'mongodb://boggyb:Williamwallace1314@ds129939.mlab.com:29939/tabletapp';
 
 
 app.listen(port);
@@ -50,7 +52,6 @@ mongoose.connect(db, function(err) {
         console.log('Connected to database');
     }
 });
-
 
 
 
