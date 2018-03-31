@@ -151,8 +151,10 @@ tabletApp.controller('viewContainersController',
                 });
 
                 })();
+       
+                  
                 // get todays date
                 $scope.date = new Date(Date.now()).toDateString();
-
+            
 
  });
