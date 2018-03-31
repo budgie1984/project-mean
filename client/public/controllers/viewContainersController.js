@@ -125,12 +125,17 @@ tabletApp.controller('viewContainersController',
                         console.log(message);
                         var expectedMessage = 'Tablets Taken';
                         var container = $scope.currentContainer; // get the current container
+                        var tabletsLowMessage = "Warning:Some Tablets are getting low";
 
                         if ($scope.tabletBoxMessage === expectedMessage) {
                             // update total amount field for tablets in container, Amount to take minus Total Amount
                             //container.updateContainer(tablets);
                             container.tablets.forEach(function (tablet) {
                                 tablet.totalAmount = (tablet.totalAmount - tablet.amountToTake);
+                                if(tablet.totalAmount <= 10){
+                                    $scope.lowTabletsMessage = tabletsLowMessage;
+                                    console.log($scope.lowTabletsMessage);
+                                }
                                 console.log(tablet);
                                 
                                 containerService.updateContainer(container) // update the container afterwrads 

@@ -12,6 +12,8 @@
     "url": "git+https://github.com/budgie1984/project-mean.git"
   },
   "dependencies": {
+    "@angular/cli": "^1.7.3",
+    "@angular/compiler-cli": "^5.2.9",
     "angular": "^1.6.1",
     "body-parser": "1.15.2",
     "express": "4.14.0",

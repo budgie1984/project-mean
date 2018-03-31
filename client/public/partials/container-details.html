@@ -10,7 +10,8 @@
   
 
                 <div id="containerdata" class="well">  
-                <h2>    <b>Name:</b> {{currentContainer.name}},<b>Status:</b> {{tabletBoxMessage}},<b>Date:</b> {{date}}
+                <h2>    <b>Name:</b> {{currentContainer.name}},<b>Status:</b> {{tabletBoxMessage}},<b>Date:</b> {{date}}, 
+                   <p> {{lowTabletsMessage}}</p>
                 </div>
 
                         <ul  class="tablets" >
@@ -19,13 +20,14 @@
                                     <b>    Name:</b>  {{tablet.name}} , 
                                     <b>    Dose:</b>  {{tablet.dose}} , 
                                     <b>    Amount To Take:</b>  {{tablet.amountToTake}} , 
-                                    <b>    Total Amount:</b>  {{tablet.totalAmount}}
-                                    
+                                    <b>    Total Amount:</b>  {{tablet.totalAmount}},
+                                    <b ng-show="tablet.totalAmount <= 10">Warning: Tablet Supply getting low</b>
+
                                     <button class="btn btn-xs pull-right btn-danger" ng-click="removeTabletFromContainer(tablet)">Remove</button>
-                        
-                        </div> 
+                </div> 
 
 
+       
 
 
   
