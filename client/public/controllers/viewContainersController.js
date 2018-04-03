@@ -8,12 +8,8 @@ tabletApp.controller('viewContainersController',
         // gets all containers in db
         containerService.getContainers()
             .success(function (data) {
-                console.log("called controller");
-                console.log(data);
                 var containers = data;
                 $scope.containers = containers;
-                console.log($scope.containers);
-
             })
             .error(function (err) {
                 $location.path("./home");
@@ -38,7 +34,6 @@ tabletApp.controller('viewContainersController',
             console.log('tablet to delete, Tablet: ', container);
             containerService.deleteContainer(container._id)
                 .then(function (res) {
-                    console.log('response to front', res);
                     alert("Container Deleted");
                     $location.path("/viewContainers");
                 });
@@ -47,11 +42,8 @@ tabletApp.controller('viewContainersController',
         // get tablets via tablet service
         tabletService.getTablets()
             .success(function(data) {
-                console.log("called controller");
-                console.log(data);
                 var tablets = data;
                 $scope.tablets = tablets;
-                console.log($scope.tablets);
                 $scope.orderProp = 'name';
             })
             .error(function(err) {
@@ -62,14 +54,8 @@ tabletApp.controller('viewContainersController',
             // add tablets to selected container
             $scope.addTabletToContainer = function(tablet) {
                 var container = $scope.currentContainer; // get the container
-                
-                console.log("****  container,", container);
-                console.log("**** tablet to add", tablet);
-                
                 container.tablets.push(tablet); // push a tablet to it
-                console.log("new tablets", container.tablets);
-                console.log("container after adding in angular front end: ", container);
-                
+          
                 containerService.updateContainer(container) // update the container
                 .success(function(data) {
                    console.log("data, ",  data);
@@ -81,10 +67,10 @@ tabletApp.controller('viewContainersController',
             };
             // remove a tablet from the container
             $scope.removeTabletFromContainer = function(tablet){
-                var container = $scope.currentContainer; // get he current container
+                var container = $scope.currentContainer; // get the current container
                 var index = container.tablets.indexOf(tablet); 
               
-                container.tablets.splice(index,1); // remove th eindex of the slected tablet
+                container.tablets.splice(index,1); // remove the index of the selected tablet
                 
                 containerService.updateContainer(container) // update the container afterwrads 
                 .success(function(data) {
@@ -121,26 +107,19 @@ tabletApp.controller('viewContainersController',
                 $rootScope.$on(Pubnub.getMessageEventNameFor($scope.tabletChannel), function (ngEvent, message) {
                     $scope.$apply(function () {
 
-                        $scope.tabletBoxMessage = message; // Displays Pubnub Message
-                        console.log(message);
+                        $scope.tabletBoxMessage = message; // get the  PubNub Message
                         var expectedMessage = 'Tablets Taken';
                         var container = $scope.currentContainer; // get the current container
-                        var tabletsLowMessage = "Warning:Some Tablets are getting low";
-
-                        if ($scope.tabletBoxMessage === expectedMessage) {
-                            // update total amount field for tablets in container, Amount to take minus Total Amount
-                            //container.updateContainer(tablets);
+                        
+                        if ($scope.tabletBoxMessage === expectedMessage) { // if message is Tablets Taken
+                        
                             container.tablets.forEach(function (tablet) {
-                                tablet.totalAmount = (tablet.totalAmount - tablet.amountToTake);
-                                if(tablet.totalAmount <= 10){
-                                    $scope.lowTabletsMessage = tabletsLowMessage;
-                                    console.log($scope.lowTabletsMessage);
-                                }
+                                tablet.totalAmount = (tablet.totalAmount - tablet.amountToTake); // subtract amount to take from total amount for all tablets
+                              
                                 console.log(tablet);
                                 
-                                containerService.updateContainer(container) // update the container afterwrads 
+                                containerService.updateContainer(container) // update the container db afterwards 
                                 .success(function(data) {
-                                   console.log("data, ",  data);
                                    return data;
                 
                                 })
@@ -148,10 +127,8 @@ tabletApp.controller('viewContainersController',
                                     $location.path("./landingpage");
                                 });
                             });
-                        } else {
-                            $scope.tabletBoxMessage = "Not Taken";
-                        }
-                        console.log(message);
+                        } 
+
                     });
                 });
 

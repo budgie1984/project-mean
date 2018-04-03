@@ -38,7 +38,7 @@ tabletApp.controller('tabletDatabaseController',
             console.log('tablet to delete, Tablet: ', tablet);
             tabletService.deleteTablet(tablet._id)
                 .then(function (res) {
-                    console.log('response to front', res);
+                  alert("Tablet deleted");
                     $location.path("/tabletdatabase");
                 });
         };

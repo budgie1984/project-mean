@@ -10,12 +10,12 @@
   
 
                 <div id="containerdata" class="well">  
-                <h2>    <b>Name:</b> {{currentContainer.name}},<b>Status:</b> {{tabletBoxMessage}},<b>Date:</b> {{date}}, 
+                <h3>    <b>Name:</b> {{currentContainer.name}}, <b>Status:</b> {{tabletBoxMessage}}, <b>Date:</b> {{date}}
                 
                 </div>
 
                         <ul  class="tablets" >
-                            <li id="tabsincontainer" ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
+                            <li id="tabsincontainer" ng-hide="tablet.totalAmount <= 0" ng-repeat="tablet in currentContainer.tablets | filter:{name: query } | orderBy:orderProp" class="thumbnail">
                         
                                     <b>    Name:</b>  {{tablet.name}} , 
                                     <b>    Dose:</b>  {{tablet.dose}} , 
