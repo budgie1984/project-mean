@@ -127,7 +127,9 @@ tabletApp.controller('viewContainersController',
                                     $location.path("./landingpage");
                                 });
                             });
-                        } 
+                        } else{
+                            $scope.tabletBoxMessage = "Not Taken";
+                        }
 
                     });
                 });
