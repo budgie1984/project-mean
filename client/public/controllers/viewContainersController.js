@@ -45,7 +45,7 @@ tabletApp.controller('viewContainersController',
                 var tablets = data;
                 $scope.tablets = tablets;
                 $scope.orderProp = 'name';
-            
+
 
             })
             .error(function(err) {
