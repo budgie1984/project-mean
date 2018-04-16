@@ -2,7 +2,7 @@ var tabletApp = angular.module('tabletApp');
 
 tabletApp.controller('viewContainersController',
     function ($scope, $rootScope, $location,$routeParams,
-             containerService, tabletService , Pubnub, $pubnubChannel, $pubnubChannelGroup,$timeout ){
+             $route,containerService, tabletService , Pubnub, $pubnubChannel, $pubnubChannelGroup,$timeout ){
 
 
         // gets all containers in db
@@ -45,6 +45,8 @@ tabletApp.controller('viewContainersController',
                 var tablets = data;
                 $scope.tablets = tablets;
                 $scope.orderProp = 'name';
+            
+
             })
             .error(function(err) {
                 $location.path("./home");
@@ -59,11 +61,13 @@ tabletApp.controller('viewContainersController',
                 containerService.updateContainer(container) // update the container
                 .success(function(data) {
                    console.log("data, ",  data);
-
+                   
                 })
                 .error(function (err) {
                     $location.path("./landingpage");
                 });
+
+                location.reload();
             };
             // remove a tablet from the container
             $scope.removeTabletFromContainer = function(tablet){
@@ -114,7 +118,7 @@ tabletApp.controller('viewContainersController',
                         if ($scope.tabletBoxMessage === expectedMessage) { // if message is Tablets Taken
                         
                             container.tablets.forEach(function (tablet) {
-                                tablet.totalAmount = (tablet.totalAmount - tablet.amountToTake); // subtract amount to take from total amount for all tablets
+                                tablet.totalAmount -= tablet.amountToTake; // subtract amount to take from total amount for all tablets
                               
                                 console.log(tablet);
                                 
