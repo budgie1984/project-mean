@@ -100,8 +100,8 @@ tabletApp.controller('viewContainersController',
 
             (function subTablets() {
                 Pubnub.init({
-                    publish_key: 'pub-c-d26f60c6-77de-4e45-99da-4b6199539435',
-                    subscribe_key: 'sub-c-cc316182-136c-11e8-acae-aa071d12b3f5',
+                    publish_key: 'publish key here',
+                    subscribe_key: 'subscribe key here',
                     uuid: $scope.uuid
                 });
                 Pubnub.subscribe({
